@@ -1,0 +1,248 @@
+body {
+  background: rgb(214, 206, 197);
+  font: 14px Arial;
+}
+
+.generator-container {
+  display: flex;
+}
+
+.map {
+  border: 1px solid rgb(214, 206, 197);
+  background-color: rgb(235, 234, 228);
+}
+
+.sidebar {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.sidebar a {
+  color: black;
+  text-decoration: underline;
+  margin: 10px;
+}
+
+.color-select {
+  display: flex;
+  flex-flow: blue;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.buttons button {
+  align-self: flex-start;
+}
+
+.color {
+  display: flex;
+}
+
+.swatch {
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.swatch:hover {
+  border: 2px solid rgb(255, 0, 0);
+  margin: 9px;
+}
+
+.swatch-selected {
+  width: 24px;
+  height: 24px;
+  margin: 9px;
+  border: 2px solid blue;
+}
+
+.color p {
+  align-self: center;
+}
+
+.color #transparent {
+  background: linear-gradient(#facdcd, #ff9696)
+}
+
+.color #orange {
+  background-color: rgb(255, 165, 0);
+}
+
+.color #blue {
+  background-color: rgb(0, 0, 255);
+}
+
+.color #black {
+  background-color: black;
+}
+
+
+
+.output {
+  display: flex;
+  height: 32px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.output p {
+  align-self: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.gCost {
+  color: rgb(143, 0, 0);
+}
+
+.hCost {
+  color: rgb(40, 110, 0);
+}
+
+.fCost {
+  color: rgb(0, 86, 156);
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 24px;
+  margin: 10px;
+  font: 14px Arial;
+  background: rgb(235, 234, 228);
+  border: 1px solid black;
+  outline: none;
+  opacity: 0.7;
+  align-self: center;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+button:active {
+  background: #004ff8;
+}
+
+
+
+.settings {
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.category {
+  text-decoration: underline;
+}
+
+.parameters {
+  margin: 5px;
+  display: flex;
+  width: 160px;
+  flex-flow: row wrap;
+}
+
+.parameters p {
+  margin: 2px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  background: rgb(218, 216, 211);
+  outline: none;
+  border: 1px solid black;
+  -webkit-transition: .2s;
+  transition: background-color .2s;
+}
+
+.slider:hover {
+  background: rgb(235, 234, 228);
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 16px;
+  background: #004ff8;
+}
+
+#tileSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25%;
+  height: 16px;
+  background: #004ff8;
+}
+
+.slider::-moz-range-thumb {
+  width: 8px;
+  height: 16px;
+  background: #004ff8;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: rgb(218, 216, 211);
+  border: 1px solid black;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+label {
+  width: 80%;
+}
+
+.checkbox:hover {
+  background: rgb(235, 234, 228);
+}
+
+.checkbox:checked {
+  background: #004ff8;
+}
+
+.radio {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: rgb(218, 216, 211);
+  border: 1px solid black;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.radio:hover {
+  background: rgb(235, 234, 228);
+}
+
+.radio:checked {
+  background: #004ff8;
+  border: 1px solid black;
+}
+
+.cost-calc {
+  margin: 5px;
+  width: 128px;
+}
+
+.cost-calc p {
+  margin: 2px;
+}
