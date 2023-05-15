@@ -73,7 +73,6 @@ function initializeClusters(numClusters) {
   return clusters;
 }
 function assignPointsToClusters(points, clusters, centroids) {
-  // Назначает каждую точку кластеру с ближайшим центроидом
   for (var i = 0; i < points.length; i++) {
     var point = points[i];
     var closestCentroidIndex = getClosestCentroidIndex(point, centroids);
@@ -81,7 +80,6 @@ function assignPointsToClusters(points, clusters, centroids) {
   }
 }
 function getClosestCentroidIndex(point, centroids) {
-  // Возвращает индекс ближайшего к заданной точке центроида
   var closestDistance = Infinity;
   var closestIndex = -1;
   for (var i = 0; i < centroids.length; i++) {
@@ -95,7 +93,6 @@ function getClosestCentroidIndex(point, centroids) {
   return closestIndex;
 }
 function calculateNewCentroids(clusters, centroids) {
-  // Вычисляет новое положение каждого центроида как среднее значение точек его кластера
   for (var i = 0; i < clusters.length; i++) {
     var cluster = clusters[i];
     if(cluster.length === 0) {
@@ -114,7 +111,6 @@ function calculateNewCentroids(clusters, centroids) {
   }
 }
 function centroidsEqual(centroids1, centroids2) {
-  // Возвращает true, если два массива центроидов равны (с небольшой погрешностью)
   if (centroids1.length !== centroids2.length) {
     return false;
   }
@@ -128,12 +124,10 @@ function centroidsEqual(centroids1, centroids2) {
   return true;
 }
 function getDistance(point1, point2) {
-  // Возвращает евклидово расстояние между двумя точками
   var dx = point1.x - point2.x;
   var dy = point1.y - point2.y;
   return Math.sqrt(dx * dx + dy * dy);
 }
 function deepCopy(object) {
-  // Возвращает глубокую копию данного объекта
   return JSON.parse(JSON.stringify(object));
 }
