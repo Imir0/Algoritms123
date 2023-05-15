@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="./public/astar-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:site_name" content="Pathfinding Visualizer">
+  <meta property="og:image" content="./public/path_visualizer.png">
+  <meta property="og:description" content="Modify a pathfinding algorithm with various options to experiment with efficiency and generate random mazes.">
+  <link rel="stylesheet" href="Abonus.css">
+  <script defer src="Abonus2.js"></script>
+</head>
+
+<body>
+<noscript>Вам необходимо включить JavaScript, чтобы запустить это приложение.</noscript>
+<div class="generator-container">
+  <canvas class="map" width="1024px" height="640px"></canvas>
+  <div class="sidebar">
+    <div class="buttons">
+      <button class="clear-btn">Очистить сетку</button>
+      <button class="naive-maze-btn">Создать наивный лабиринт</button>
+      <button class="eller-maze-btn">Создать лабиринт Эйлера</button>
+      <button class="prim-maze-btn">Создать алгоритм прима Лабиринта</button>
+      <button class="deadend-btn">Найти тупик</button>
+    </div>
+    <div class="color-select">
+      <div class="color">
+        <div class="swatch" id="transparent"></div>
+        <p>Ластик</p>
+      </div>
+      <div class="color">
+        <div class="swatch" id="orange"></div>
+        <p>Старт</p>
+      </div>
+      <div class="color">
+        <div class="swatch" id="blue"></div>
+        <p>Финиш</p>
+      </div>
+      <div class="color">
+        <div class="swatch" id="black"></div>
+        <p>Стена</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="output">
+  <button class="generate-btn">Найти путь</button>
+  <button class="cancel-btn">Отменить путь</button>
+  <p>Шаги: </p>
+  <p class="steps">0</p>
+  <p>Длина пути (плитки): </p>
+  <p class="path">0</p>
+  <p>g(n): </p>
+  <p class="gCost">0</p>
+  <p>h(n): </p>
+  <p class="hCost">0</p>
+  <p>f(n): </p>
+  <p class="fCost">0</p>
+</div>
+<div class="settings">
+  <div class="parameters">
+    <input type="checkbox" id="cornerBuffer" name="cornerBuffer" class="checkbox" value="bufferCorners">
+    <label for="cornerBuffer"> Буферные углы</label><br>
+    <input type="checkbox" id="nodeRedundancy" name="nodeRedundancy" class="checkbox" value="nodeRedundancy">
+    <label for="nodeRedundancy"> Узел карты</label><br>
+    <p>Задержка шага (мс):</p>
+    <p class="delay">50</p>
+    <input type="range" min="1" max="3000" value="50" class="slider" id="stepDelay">
+    <p>Размер плитки (px):</p>
+    <p class="tileSize">16</p>
+    <input type="range" min="3" max="6" value="4" class="slider" id="tileSlider">
+    <p>Точность:</p>
+    <p class="precision">1000</p>
+    <input type="range" min="0" max="10" value="3" class="slider" id="precSlider">
+  </div>
+  <div class="cost-calc" id="heuristic">
+    <p class="category">Эвристическое расстояние</p>
+    <input type="radio" id="manhattan" name="heuristic" class="radio" value="manhattan">
+    <label for="manhattan">Манхэттен</label><br>
+    <input type="radio" id="octile" name="heuristic" class="radio" value="octile" checked="checked">
+    <label for="octile">Октиль</label><br>
+    <input type="radio" id="euclidean" name="heuristic" class="radio" value="euclidean">
+    <label for="euclidean">Евклидово</label>
+  </div>
+  <div class="cost-calc" id="fCost">
+    <p class="category">Метод затрат</p>
+    <input type="radio" id="sum" name="fCost" class="radio" value="sum" checked="checked">
+    <label for="sum">g(n) + h(n)</label><br>
+    <input type="radio" id="ignoreG" name="fCost" class="radio" value="ignoreG">
+    <label for="ignoreG">Игнорировать g(n)</label><br>
+  </div>
+  <div class="cost-calc" id="tieBreak">
+    <p class="category">Тай-брейк</p>
+    <input type="radio" id="cross" name="tiebreak" class="radio" value="cross" checked="checked">
+    <label for="cross">Перекрестный продукт</label><br>
+    <input type="radio" id="proximity" name="tiebreak" class="radio" value="proximity">
+    <label for="proximity">Близость</label><br>
+    <input type="radio" id="hCost" name="tiebreak" class="radio" value="hCost">
+    <label for="hCost">h(n)</label><br>
+    <input type="radio" id="noBreak" name="tiebreak" class="radio" value="noBreak">
+    <label for="noBreak">Ничего</label><br>
+  </div>
+</div>
+</body>
+
+</html>
